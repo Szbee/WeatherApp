@@ -1,5 +1,5 @@
 //
-//  DaysModel.swift
+//  DayModel.swift
 //  WeatherApp
 //
 //  Created by Hartmann Szabolcs on 23/04/2025.

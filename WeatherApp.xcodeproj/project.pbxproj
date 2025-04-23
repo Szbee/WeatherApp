@@ -14,7 +14,7 @@
 		31A6A4032DB93C1100709C6F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A4022DB93C1100709C6F /* HomeView.swift */; };
 		31A6A4052DB93C2000709C6F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A4042DB93C2000709C6F /* HomeViewModel.swift */; };
 		31A6A4092DB94FCB00709C6F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A4082DB94FCB00709C6F /* Date+Extension.swift */; };
-		31A6A40C2DB950EC00709C6F /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A40B2DB950EC00709C6F /* DaysModel.swift */; };
+		31A6A40C2DB950EC00709C6F /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A40B2DB950EC00709C6F /* DayModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		31A6A4022DB93C1100709C6F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		31A6A4042DB93C2000709C6F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		31A6A4082DB94FCB00709C6F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		31A6A40B2DB950EC00709C6F /* DaysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
+		31A6A40B2DB950EC00709C6F /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 		31A6A40A2DB950D800709C6F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				31A6A40B2DB950EC00709C6F /* DaysModel.swift */,
+				31A6A40B2DB950EC00709C6F /* DayModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 				31A6A4032DB93C1100709C6F /* HomeView.swift in Sources */,
 				3114216E2DB8210700CCD63E /* ContentView.swift in Sources */,
 				3114216C2DB8210700CCD63E /* WeatherAppApp.swift in Sources */,
-				31A6A40C2DB950EC00709C6F /* DaysModel.swift in Sources */,
+				31A6A40C2DB950EC00709C6F /* DayModel.swift in Sources */,
 				31A6A4052DB93C2000709C6F /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    @Published var daysArray: [DaysModel] = []
+    @Published var daysArray: [DayModel] = []
     
     init() {
         createDays()
@@ -34,7 +34,7 @@ class HomeViewModel: ObservableObject {
                     label = formatter.string(from: date)
                 }
 
-                daysArray.append(DaysModel(day: label, date: date))
+                daysArray.append(DayModel(day: label, date: date))
             }
         }
     }
