@@ -11,6 +11,10 @@
 		3114216E2DB8210700CCD63E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114216D2DB8210700CCD63E /* ContentView.swift */; };
 		311421702DB8210900CCD63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3114216F2DB8210900CCD63E /* Assets.xcassets */; };
 		311421732DB8210900CCD63E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311421722DB8210900CCD63E /* Preview Assets.xcassets */; };
+		31A6A4032DB93C1100709C6F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A4022DB93C1100709C6F /* HomeView.swift */; };
+		31A6A4052DB93C2000709C6F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A4042DB93C2000709C6F /* HomeViewModel.swift */; };
+		31A6A4092DB94FCB00709C6F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A4082DB94FCB00709C6F /* Date+Extension.swift */; };
+		31A6A40C2DB950EC00709C6F /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6A40B2DB950EC00709C6F /* DaysModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		3114216D2DB8210700CCD63E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3114216F2DB8210900CCD63E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		311421722DB8210900CCD63E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		31A6A4022DB93C1100709C6F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		31A6A4042DB93C2000709C6F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		31A6A4082DB94FCB00709C6F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		31A6A40B2DB950EC00709C6F /* DaysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,8 @@
 		3114216A2DB8210700CCD63E /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				31A6A4072DB94FB500709C6F /* Extensions */,
+				31A6A4062DB94FAA00709C6F /* Screens */,
 				3114216B2DB8210700CCD63E /* WeatherAppApp.swift */,
 				3114216D2DB8210700CCD63E /* ContentView.swift */,
 				3114216F2DB8210900CCD63E /* Assets.xcassets */,
@@ -65,6 +75,40 @@
 				311421722DB8210900CCD63E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		31A6A4012DB93BF800709C6F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				31A6A40A2DB950D800709C6F /* Components */,
+				31A6A4022DB93C1100709C6F /* HomeView.swift */,
+				31A6A4042DB93C2000709C6F /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		31A6A4062DB94FAA00709C6F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				31A6A4012DB93BF800709C6F /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		31A6A4072DB94FB500709C6F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31A6A4082DB94FCB00709C6F /* Date+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		31A6A40A2DB950D800709C6F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				31A6A40B2DB950EC00709C6F /* DaysModel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +181,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A6A4092DB94FCB00709C6F /* Date+Extension.swift in Sources */,
+				31A6A4032DB93C1100709C6F /* HomeView.swift in Sources */,
 				3114216E2DB8210700CCD63E /* ContentView.swift in Sources */,
 				3114216C2DB8210700CCD63E /* WeatherAppApp.swift in Sources */,
+				31A6A40C2DB950EC00709C6F /* DaysModel.swift in Sources */,
+				31A6A4052DB93C2000709C6F /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
