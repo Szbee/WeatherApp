@@ -6,36 +6,56 @@
 //
 
 import Foundation
+import Combine
 
 class HomeViewModel: ObservableObject {
-    @Published var daysArray: [DayModel] = []
+    // MARK: - Properties
+    
+    @Published var selectedCity = "Dresden"
+    @Published var forecasts: [DailyForecast] = []
+    @Published var errorMessage: String?
+    
+    private let service = ForecastService()
+    private var cancellables = Set<AnyCancellable>()
+    
+    // MARK: - Initialization
     
     init() {
-        createDays()
+        loadForecast()
     }
     
-    private func createDays() {
-        let calendar = Calendar.current
-        let today = Date()
-        
-        for offset in 0..<5 {
-            if let date = calendar.date(byAdding: .day, value: offset, to: today) {
-                let label: String
-                
-                switch offset {
-                case 0:
-                    label = "Today"
-                case 1:
-                    label = "Tomorrow"
-                default:
-                    let formatter = DateFormatter()
-                    formatter.locale = Locale(identifier: "en_EN")
-                    formatter.dateFormat = "EEEE"
-                    label = formatter.string(from: date)
+    // MARK: - Functions
+    
+    func loadForecast() {
+        service.fetchForecast(for: selectedCity)
+            .sink { [weak self] completion in
+                if case let .failure(error) = completion {
+                    print(error)
+                    self?.errorMessage = error.localizedDescription
                 }
-
-                daysArray.append(DayModel(day: label, date: date))
+            } receiveValue: { [weak self] daily in
+                guard let self else { return }
+                
+                let formatter = ISO8601DateFormatter()
+                self.forecasts = daily.prefix(5).compactMap { day in
+                    if let date = formatter.date(from: day.time) {
+                        return DailyForecast(
+                            date: date,
+                            maxTemp: day.values.temperatureMax,
+                            minTemp: day.values.temperatureMin,
+                            weatherCode: day.values.weatherCodeMax,
+                            humidityAvg: day.values.humidityAvg,
+                            rainAccumulationAvg: day.values.rainAccumulationAvg,
+                            windSpeedMax: day.values.windSpeedMax,
+                            windDirectionAvg: day.values.windDirectionAvg,
+                            uvIndexMax: day.values.uvIndexMax,
+                            visibilityAvg: day.values.visibilityAvg,
+                            pressureSeaLevelAvg: day.values.pressureSeaLevelAvg
+                        )
+                    }
+                    return nil
+                }
             }
-        }
+            .store(in: &cancellables)
     }
 }

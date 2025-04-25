@@ -15,12 +15,16 @@ struct HomeView: View {
             NavigationView {
                 List {
                     Section {
-                        createLocationRow(location: "Dresden")
+                        NavigationLink(destination: LocationView()) {
+                            createLocationRow(location: viewModel.selectedCity)
+                        }
                     }
                     
                     Section {
-                        ForEach(viewModel.daysArray, id: \.id) { item in
-                            createDayRow(day: item.day, date: item.date.formattedString())
+                        ForEach(viewModel.forecasts, id: \.id) { forecast in
+                            NavigationLink(destination: WeatherDetailView(day: createDayLabel(for: forecast.date), forecast: forecast)) {
+                                createDayRow(date: forecast.date)
+                            }
                         }
                     }
                 }
@@ -29,47 +33,48 @@ struct HomeView: View {
                 .navigationBarTitleDisplayMode(.large)
             }
         }
-    }
-    
-    private func createLocationRow(location: String) -> some View {
-        Button {
-            // TODO: - navigation
-        } label: {
-            HStack {
-                Text("Location")
-                    .font(.body)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundStyle(.black)
-                
-                Text(location)
-                    .font(.body)
-                    .foregroundStyle(.gray)
-                
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(.gray)
-            }
+        .refreshable {
+            viewModel.loadForecast()
         }
     }
     
-    private func createDayRow(day: String, date: String) -> some View {
-        Button {
-            // TODO: - navigation
-        } label: {
-            HStack {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(day)
-                        .font(.body)
-                        .foregroundStyle(.black)
-                    
-                    Text(date)
-                        .font(.caption)
-                        .foregroundStyle(.gray)
-                }
+    private func createLocationRow(location: String) -> some View {
+        HStack(spacing: 0) {
+            Text("Location")
+                .font(.body)
                 .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Text(location)
+                .font(.body)
+                .foregroundStyle(.gray)
+        }
+    }
+    
+    private func createDayRow(date: Date) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 0) {
+                Text(createDayLabel(for: date))
+                    .font(.body)
                 
-                Image(systemName: "chevron.right")
+                Text(date.formattedString())
+                    .font(.caption)
                     .foregroundStyle(.gray)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+    
+    private func createDayLabel(for date: Date) -> String {
+        let calendar = Calendar.current
+        if calendar.isDateInToday(date) {
+            return "Today"
+        } else if calendar.isDateInTomorrow(date) {
+            return "Tomorrow"
+        } else {
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en_EN")
+            formatter.dateFormat = "EEEE"
+            return formatter.string(from: date).capitalized
         }
     }
 }
